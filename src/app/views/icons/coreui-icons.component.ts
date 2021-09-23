@@ -30,31 +30,7 @@ export class CoreUIIconsComponent implements OnInit {
   ngOnInit() {
     this.dragAreaClass = "dragarea";
   }
-  @HostListener("dragover", ["$event"]) onDragOver(event: any) {
-    this.dragAreaClass = "droparea";
-    event.preventDefault();
-  }
-  @HostListener("dragenter", ["$event"]) onDragEnter(event: any) {
-    this.dragAreaClass = "droparea";
-    event.preventDefault();
-  }
-  @HostListener("dragend", ["$event"]) onDragEnd(event: any) {
-    this.dragAreaClass = "dragarea";
-    event.preventDefault();
-  }
-  @HostListener("dragleave", ["$event"]) onDragLeave(event: any) {
-    this.dragAreaClass = "dragarea";
-    event.preventDefault();
-  }
-  @HostListener("drop", ["$event"]) onDrop(event: any) {
-    this.dragAreaClass = "dragarea";
-    event.preventDefault();
-    event.stopPropagation();
-    if (event.dataTransfer.files) {
-      let files: FileList = event.dataTransfer.files;
-      this.saveFiles(files);
-    }
-  }
+
 
   saveFiles(files: FileList) {
     console.log(files);
