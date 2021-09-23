@@ -1,0 +1,509 @@
+// Here you can add other styles
+// outline view
+
+main {
+  background-color: white;
+  position: relative;
+  &::before {
+    display: block;
+    background-color: #eeeeee;
+    content: "";
+    width: 100%;
+    height: 250px;
+    position: absolute;
+  }
+}
+main > .container-fluid {
+  padding-top: 85px !important;
+  position: relative;
+}
+button:disabled{
+  cursor: not-allowed;
+}
+// header
+.header-fixed .app-header {
+  background: #eeeeee !important;
+  padding: 0px !important;
+  height: auto;
+}
+.app-header .navbar-brand {
+  background-color: white;
+  width: 200px;
+  padding-top: 20px;
+  height: 100%;
+}
+.sidebar {
+  padding-top: 30px;
+  background: #ffffff;
+  .nav-link {
+    color: #28246b;
+    &:hover , &.active {
+      color: #7cc249;
+      background: #f6f9fc;
+    }
+  }
+}
+.d-lg-none.navbar-toggler {
+  display: none;
+}
+
+.navbar-nav {
+  width: calc(100% - 200px);
+  display: flex;
+  li {
+    padding-top: 20px;
+  }
+}
+li.search-nav {
+  width: calc(100% - 163px);
+  > div {
+    width: 63%;
+    margin: 0 auto;
+  }
+}
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: auto;
+  height: 50px;
+  background-color: #f7fafc;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: -5px 5px 16px -18px #1a1a1a;
+  a {
+    color: #172b4d;
+  }
+}
+
+.search-input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  margin-top: 5px;
+  caret-color: transparent;
+  line-height: 20px;
+  transition: width 0.4s linear;
+  &::placeholder {
+    color: #172b4d;
+    font-weight: normal;
+    font-size: 15px;
+    font-family: PoppinsMed;
+  }
+}
+
+.search .search-input {
+  padding: 0 10px;
+  width: 100%;
+  font-size: 19px;
+  font-weight: 300;
+  color: black;
+  transition: width 0.4s linear;
+}
+.app-header {
+  border-bottom: none;
+}
+.sidebar .nav-title {
+  display: none;
+}
+.navbar-toggler {
+  display: none !important;
+  @media screen and (max-width: 992px) {
+    display: block !important;
+  }
+}
+
+// dashbord icon
+.nav-item {
+  .nav-icon::before {
+    content: "";
+    width: 19px;
+    height: 19px;
+    /* background: red; */
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    fill: red;
+  }
+
+  
+
+  
+  .icon-pencil:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/home_1.svg);
+  }
+  .icon-puzzle:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/doc_1.svg);
+  }
+  .icon-cursor:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/ach_1.svg);
+  }
+  .icon-pie-chart:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/hand.svg);
+  }
+  .icon-star:nth-of-type(1)::before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/hand.svg);
+  }
+  .icon-bell:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/donation.svg);
+  }
+  .icon-calculator:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/doner.svg);
+  }
+
+  .icon-ban:before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/settings.svg);
+  }
+  &:nth-of-type(8) .icon-star::before {
+    background-image: url(../assets/img/images-admin/tabs_icon_dash/about.svg);
+  }
+  &:hover  , &.active{
+ 
+    
+    .icon-pencil:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/home_2.svg);
+    }
+    .icon-puzzle:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/doc_2.svg);
+    }
+    .icon-cursor:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/ach_2.svg);
+    }
+    .icon-pie-chart:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/hand_2.svg);
+    }
+    .icon-star:nth-of-type(1)::before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/hand_2.svg);
+    }
+    .icon-bell:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/donation_2.svg);
+    }
+    .icon-calculator:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/doner_2.svg);
+    }
+  
+    .icon-ban:before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/settings_2.svg);
+    }
+    &:nth-of-type(8) .icon-star::before {
+      background-image: url(../assets/img/images-admin/tabs_icon_dash/about_2.svg);
+    }
+  }
+
+}
+
+//comom class
+.priColor {
+  color: #7cc249;
+}
+.no-margin {
+  margin: 0px !important;
+}
+.mb-60 {
+  margin-bottom: 60px !important;
+}
+
+.sidebar .nav-link.active {
+  color: #7cc249;
+  background-color: white;
+}
+// dahsbord common
+h3,
+h4 {
+  font-family: PoppinsBold;
+}
+h3 {
+  color: #28246b;
+  margin: 40px 0px;
+  font-weight: bold;
+  text-transform: capitalize;
+  position: relative;
+}
+h4 {
+  color: #28246b;
+  margin-bottom: 20px;
+}
+.sec {
+  margin-bottom: 60px;
+}
+.green-border {
+  border: 1px solid red;
+
+  &::after {
+    display: block;
+    content: "";
+  }
+}
+.btns {
+  margin-top: 150px;
+}
+// form
+.card-main {
+  padding: 7% 4%;
+  position: relative;
+  border-radius: 30px;
+  border: unset;
+  width: 80%;
+  margin: 0 auto;
+
+
+  &::after {
+    border: 2px solid #7cc249;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    right: 0px;
+    border-radius: 31px;
+    height: 88%;
+    border-top: none;
+    left: 0px;
+    z-index: -0;
+  }
+  .card-body {
+    width: 730px;
+    margin: 0 auto;
+    position: relative;
+ 
+    z-index: 5;
+  }
+}
+form {
+  label {
+    margin-right: 5px;
+    width: 100px;
+    color: #28246b;
+    font-weight: bold;
+  }
+  input.form-control {
+    border: 2px solid #28246b !important;
+    border-radius: 21px !important;
+    padding: 9px 8px;
+    height: auto;
+  }
+  textarea.form-control {
+    border: 2px solid #28246b;
+    border-radius: 22px;
+    min-height: 150px;
+  }
+  .warn {
+    color: #f92b20 !important;
+  }
+}
+.upload {
+  position:relative ;
+  ::-webkit-file-upload-button{
+    background-color: red !important;
+    position: absolute;
+    right: 1px;
+    width: 160px;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+.main-btn {
+  padding: 10px;
+  text-align: center;
+  background-color: #7cc249;
+  border-radius: 29px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  min-width: 300px;
+  &[type="submit"] + button {
+    background-color: #28246b !important;
+  }
+}
+.photo {
+  width: 100%;
+  .text {
+    border: 2px solid #28246b;
+    min-height: 150px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    span {
+      margin-bottom: 10px;
+    }
+  }
+}
+.upload {
+  border: 2px solid #28246b;
+  width: 100%;
+  display: flex;
+  border-radius: 28px;
+  align-items: center;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+  input.form-control {
+    border: none !important;
+  }
+  button {
+    width: 204px !important;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    min-width: unset;
+
+    display: flex;
+  }
+}
+.droparea,
+.dragarea {
+  width: 100%;
+
+  width: 100%;
+  border: 2px dashed #28246b;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 300px;
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img {
+      width: 40px;
+    }
+
+    span {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #28246b;
+    }
+  }
+}
+.form-group {
+  display: flex;
+}
+
+.dragarea {
+  background-color: #ffffff;
+  color: #aaa;
+  height: 300px;
+}
+
+// achievmnet
+
+.achievemnt .card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  background: #28246b;
+  color: white;
+}
+.achievemnt .container .row .d-flex {
+  width: 100%;
+}
+
+.achievemnt .card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 6px solid #e4e5e6;
+  &:active,
+  &:focus,
+  &:hover {
+    border: 6px solid #7cc249;
+  }
+}
+
+//partners
+.it .btn-orange {
+  background-color: blue;
+  border-color: #777 !important;
+  color: #777;
+  text-align: left;
+  width: 100%;
+}
+.it input.form-control {
+  border: none;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: none;
+}
+.it .form-control:focus {
+  border-color: #ff4d0d;
+  box-shadow: none;
+  outline: none;
+}
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+// Doners
+table {
+  border-radius: 10px;
+  border: 1px solid #7cc249;
+  background: white;
+}
+
+.donation-card {
+  box-shadow: 0px 7px 15px 7px rgba(160, 160, 160, 0.45);
+
+  background-color: white;
+  width: 100% !important;
+  border: 1px solid #f7f7f7;
+  border-radius: 13px;
+  width: 100% !important;
+  .card-text {
+    p {
+      color: #28246b;
+      &:nth-of-type(1) {
+        font-size: 0.8rem;
+      }
+      font-weight: bold;
+    }
+  }
+  > div {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 100px;
+    }
+  }
+}
+
+.card {
+  border: none;
+}
+.hr_sec {
+  background-color: red;
+}
+
+//Home
+.aboutFilename{
+  max-width: 53%;
+  max-height: 52px;
+  display: flex;
+  overflow: auto;
+  span{
+    font-size: 0.7rem;
+  }
+}

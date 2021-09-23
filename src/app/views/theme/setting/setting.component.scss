@@ -1,0 +1,59 @@
+img{
+    min-width: 130px;
+    margin-left: 10px;
+}
+
+FORM{
+    .form{
+        width: 100%;
+    }
+    input{
+ 
+            border-radius: 18px;
+            border: 1px solid #2E3A60;
+            padding-left:43px;
+
+    }
+    .form-group > div
+{
+width: 100%;
+position: relative;
+
+    
+   &::before 
+        {
+        content: "";
+        background-image: url(../../../../assets/img/images-admin/about_username.svg);
+        display: block;
+position: absolute;
+width: 25px;
+height: 15px;
+left: 19px;
+z-index: 11;
+background-repeat: no-repeat;
+background-size: contain;
+top: 50%;
+transform: translateY(-50%);
+    }
+  
+  
+     
+}
+.form-group:nth-of-type(2) > div::before {
+    background-image: url(../../../../assets/img/images-admin/about_email.svg);
+
+}
+
+.form-group:nth-of-type(3) > div::before {
+    background-image: url(../../../../assets/img/images-admin/about_pass.svg);
+
+}
+}
+button{
+    width: 100%;
+}
+.img{
+    p{
+        font-size: 0.8rem;
+    }
+}

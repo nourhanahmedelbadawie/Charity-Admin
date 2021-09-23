@@ -1,0 +1,80 @@
+.flex{
+    display: flex;
+    background-color: white;
+    >div{
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        img{
+            
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+        }
+        img:nth-of-type(2)
+        {
+            position: absolute;
+           
+            width: 200px;
+    object-fit: contain;
+    height: 146px;
+        }
+        FORM{
+            width: 50% ;
+            input{
+         
+                    border-radius: 18px;
+                    border: 1px solid #2E3A60;
+                    padding-left:43px
+
+            }
+            .email,.pass
+{
+    width: 100%;
+position: relative;
+}
+            
+            .email::before ,            .pass::before
+                {
+                content: "";
+                background-image: url(../../../assets/img/images-admin/email.svg);
+                display: block;
+    position: absolute;
+    width: 25px;
+    height: 15px;
+    left: 19px;
+    z-index: 11;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 50%;
+    transform: translateY(-50%);
+            }
+            .pass::before{
+                background-image: url(../../../assets/img/images-admin/Password.svg);
+
+            }
+             
+        }
+        .btn{
+            background-color: #28246B;
+            border-radius: 25px;
+
+            width: 100%;
+            padding: 10px 2px;
+            color: white;
+            margin-bottom: 33px;
+        }
+    }
+}
+.forget-pass{
+    font-weight: bold;
+    text-decoration: underline;
+}
+*{
+    color: #2E3A60;
+}

@@ -1,0 +1,185 @@
+<div class="animated fadeIn">
+  <h3>Partners</h3>
+  <div class="card card-main">
+    <div class="card-body">
+      <h4>Cover Photo</h4>
+
+      <form [formGroup]="parForm" (submit)="submit($event)">
+        <section class="sec">
+          <div draggable="true" ngClass="{{ dragAreaClass }}">
+            <div class="row">
+              <div class="col-md-12 text-center text">
+                <span
+                  ><img src="../../../assets/img/images-admin/home/upload.svg"
+                /></span>
+                <span *ngIf="!imageFilename1">Drag and drop Photo here</span>
+
+                <span *ngIf="imageFilename1"> {{ imageFilename1 }} </span>
+                <a
+                  href="javascript:void(0)"
+                  class="main-btn"
+                  (click)="file.click()"
+                >
+                  Browse Photo
+                </a>
+  
+                <input
+                type="file"
+                #file
+                multiple="false"
+                (change)="onFileChange($event, 1)"
+                style="display: none"
+              />
+                
+              </div>
+            </div>
+          </div>
+         
+        </section>
+        <section>
+          <h4>Partners Intro</h4>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Write the title"
+              formControlName="title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intro</label>
+            <textarea
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Write the Intro"
+              formControlName="intro"
+
+            ></textarea>
+          </div>
+
+          <div class="photo form-group">
+            <label for="exampleInputEmail1">Image</label>
+
+            <div class="text">
+              <span
+                ><img
+                  src="../../../assets/img/images-admin/home/upload.svg"
+                  class="ml-1"
+                />
+                You can drag and drop files here to add them.</span
+              >
+              <button class="main-btn">Browse Photo</button>
+            </div>
+          </div>
+        </section>
+        <section class="sec">
+          <div class="d-flex justify-content-between mb-4">
+            <h4>Our Partner</h4>
+            <button class="main-btn">Add New</button>
+          </div>
+      
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intro</label>
+            <textarea
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Write the Subtitle"
+              formControlName="title"
+
+            ></textarea>
+          </div>
+
+      
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Company 1</label>
+            <div class="upload">
+              <input
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Write the Subtitle"
+              />
+
+              <button class="main-btn">Upload File</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="d-flex justify-content-between btns">
+          <button class="main-btn" type="submit">Save</button>
+          <button class="main-btn" type="button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
