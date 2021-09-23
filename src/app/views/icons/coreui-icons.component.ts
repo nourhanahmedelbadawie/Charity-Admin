@@ -12,6 +12,9 @@ export class CoreUIIconsComponent implements OnInit {
   public title = "CoreUI Icons";
   public icons = [];
   fileName: string = null;
+  imageFilename1: string = null;
+  imageFilename2: string = null;
+  imageFilename3: string = null;
 
   constructor(
     public platform: Platform,

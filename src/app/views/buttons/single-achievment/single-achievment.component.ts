@@ -59,7 +59,7 @@ export class SingleAchievmentComponent implements OnInit {
     
  
   });
-  submit() {
+  submit(e) {
     let doc={ ...this.achForm.value }
     console.log(doc)
     this.configService
