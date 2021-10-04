@@ -12,28 +12,24 @@
                 <span
                   ><img src="../../../assets/img/images-admin/home/upload.svg"
                 /></span>
-                <span *ngIf="!cover_about_us_main">Drag and drop Photo here</span>
+                <span *ngIf="!cover_about_us_main"
+                  >Drag and drop Photo here</span
+                >
 
-                <span *ngIf="cover_about_us_main"> {{ cover_about_us_main }} </span>
+                <span *ngIf="cover_about_us_main">
+                  {{ cover_about_us_main }}
+                </span>
                 <a
                   href="javascript:void(0)"
                   class="main-btn"
-<<<<<<< HEAD
                   (click)="cover_about_us_main_input.click()"
-=======
-                  (click)="cover_about_us_main.click()"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                 >
                   Browse Photo
                 </a>
 
                 <input
                   type="file"
-<<<<<<< HEAD
                   #cover_about_us_main_input
-=======
-                  #cover_about_us_main
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                   multiple="false"
                   (change)="onFileChange($event, 1)"
                   style="display: none"
@@ -86,11 +82,7 @@
 
                 <input
                   type="file"
-<<<<<<< HEAD
                   #image_about_us_main_input
-=======
-                  #image_about_us_main
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                   multiple
                   (change)="onFileChange($event, 2)"
                   style="display: none"
@@ -98,11 +90,7 @@
                 <a
                   href="javascript:void(0)"
                   class="main-btn"
-<<<<<<< HEAD
                   (click)="image_about_us_main_input.click()"
-=======
-                  (click)="image_about_us_main.click()"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                 >
                   Browse Photo
                 </a>
@@ -117,7 +105,10 @@
       </form>
       <hr class="hr_sec" />
 
-      <form [formGroup]="about_us_section_two" (submit)="submit_about_us_section_two()">
+      <form
+        [formGroup]="about_us_section_two"
+        (submit)="submit_about_us_section_two()"
+      >
         <div class="d-flex justify-content-between mb-4">
           <h4>Why Choose US</h4>
           <span class="warn"> +4 section </span>
@@ -168,11 +159,7 @@
 
                 <input
                   type="file"
-<<<<<<< HEAD
                   #about_us_section_two_input
-=======
-                  #about_us_section_two
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                   multiple
                   (change)="onFileChange($event, 2)"
                   style="display: none"
@@ -180,11 +167,7 @@
                 <a
                   href="javascript:void(0)"
                   class="main-btn"
-<<<<<<< HEAD
                   (click)="about_us_section_two_input.click()"
-=======
-                  (click)="about_us_section_two.click()"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
                 >
                   Browse Photo
                 </a>
@@ -199,9 +182,11 @@
       </form>
       <hr class="hr_sec" />
 
-      <form [formGroup]="about_us_why_choose_us_01" (submit)="submit_about_us_why_choose_us_01()">
+      <form
+        [formGroup]="about_us_why_choose_us_01"
+        (submit)="submit_about_us_why_choose_us_01()"
+      >
         <section class="sec">
-       
           <div class="form-group">
             <label for="exampleInputEmail1">Section No</label>
             <input
@@ -218,11 +203,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Subtitle"
-<<<<<<< HEAD
               formControlName="title"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
           <div class="form-group">
@@ -232,11 +213,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
-<<<<<<< HEAD
               formControlName="intro"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
 
@@ -249,7 +226,7 @@
                 aria-describedby="emailHelp"
                 type="file"
                 placeholder="uploade document file"
-                (change)="onpdfChange($event ,1)"
+                (change)="onpdfChange($event, 1)"
               />
 
               <button class="main-btn">Upload File</button>
@@ -263,9 +240,11 @@
       </form>
       <hr class="hr_sec" />
 
-      <form [formGroup]="about_us_why_choose_us_02" (submit)="submit_about_us_why_choose_us_02()">
+      <form
+        [formGroup]="about_us_why_choose_us_02"
+        (submit)="submit_about_us_why_choose_us_02()"
+      >
         <section class="sec">
-          
           <div class="form-group">
             <label for="exampleInputEmail1">Section No</label>
             <input
@@ -282,11 +261,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Subtitle"
-<<<<<<< HEAD
               formControlName="title"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
           <div class="form-group">
@@ -296,11 +271,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
-<<<<<<< HEAD
               formControlName="intro"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
 
@@ -313,7 +284,7 @@
                 aria-describedby="emailHelp"
                 type="file"
                 placeholder="uploade document file"
-                (change)="onpdfChange($event , 2)"
+                (change)="onpdfChange($event, 2)"
               />
 
               <button class="main-btn">Upload File</button>
@@ -327,9 +298,11 @@
       </form>
       <hr class="hr_sec" />
 
-      <form [formGroup]="about_us_why_choose_us_03" (submit)="submit_about_us_why_choose_us_03()">
+      <form
+        [formGroup]="about_us_why_choose_us_03"
+        (submit)="submit_about_us_why_choose_us_03()"
+      >
         <section class="sec">
-          
           <div class="form-group">
             <label for="exampleInputEmail1">Section No</label>
             <input
@@ -346,11 +319,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Subtitle"
-<<<<<<< HEAD
               formControlName="title"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
           <div class="form-group">
@@ -360,11 +329,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
-<<<<<<< HEAD
               formControlName="intro"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
 
@@ -377,7 +342,7 @@
                 aria-describedby="emailHelp"
                 type="file"
                 placeholder="uploade document file"
-                (change)="onpdfChange($event , 3)"
+                (change)="onpdfChange($event, 3)"
               />
 
               <button class="main-btn">Upload File</button>
@@ -391,9 +356,11 @@
       </form>
       <hr class="hr_sec" />
 
-      <form [formGroup]="about_us_why_choose_us_04" (submit)="submit_about_us_why_choose_us_04()">
+      <form
+        [formGroup]="about_us_why_choose_us_04"
+        (submit)="submit_about_us_why_choose_us_04()"
+      >
         <section class="sec">
-          
           <div class="form-group">
             <label for="exampleInputEmail1">Section No</label>
             <input
@@ -410,11 +377,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Subtitle"
-<<<<<<< HEAD
               formControlName="title"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
           <div class="form-group">
@@ -424,11 +387,7 @@
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
-<<<<<<< HEAD
               formControlName="intro"
-=======
-              formControlName="title3"
->>>>>>> a56f99c4b2070758a04da1f357cc411f9f1769ac
             ></textarea>
           </div>
 
@@ -441,7 +400,7 @@
                 aria-describedby="emailHelp"
                 type="file"
                 placeholder="uploade document file"
-                (change)="onpdfChange($event , 4)"
+                (change)="onpdfChange($event, 4)"
               />
 
               <button class="main-btn">Upload File</button>
@@ -453,7 +412,6 @@
           <button class="main-btn" type="button">Cancel</button>
         </div>
       </form>
-     
     </div>
   </div>
 </div>
