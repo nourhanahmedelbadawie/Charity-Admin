@@ -41,7 +41,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Donations',
-    url: '/notifications',
+    url: '/notifications/donations',
     icon: 'icon-bell',
    
   },

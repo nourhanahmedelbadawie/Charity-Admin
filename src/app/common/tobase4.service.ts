@@ -12,15 +12,15 @@ export class Tobase4Service {
   const reader = new FileReader();
   // Sets up even listeners BEFORE you call reader.readAsDataURL
   reader.onload = function () {
-    const result = reader.result
-    return resolve(result);
+    const result = reader.result 
+    return resolve(result)
   };
 
   reader.onerror = function (error) {
     return reject(error);
   };
   // Calls reader function
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(file)
 })
   }
   getFile(file) {

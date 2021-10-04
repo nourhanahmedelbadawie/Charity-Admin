@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -17,14 +18,19 @@ export class ConfigService {
 
 
   configUrl = 'http://178.62.19.101:8888/index.php/api/dashboard/';
+  configViewUrl="http://178.62.19.101:8888/index.php/api"
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private route: Router) { }
   login(user: any): Observable<any> {
       return this.http.post<any>(`${this.configUrl}login/`, user   ,httpOptions )
     .pipe(
       catchError(this.handleError)
     );
+  }
+    logout(): void{
+     localStorage.removeItem('token')
+     this.route.navigate(['/login']);
+
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -56,18 +62,129 @@ sendDocScreen(obj: any): Observable<any> {
 );
 }
 
-// achivemnt
+// ============================================== achivemnt ==================================================
 getAchievement(): Observable<any> {
-  return this.http.get(`${this.configUrl}get_all_achievements/`)    
+  return this.http.get(`${this.configViewUrl}/get_all_achievements/`)    
 .pipe(
   catchError(this.handleError)
 );
 }
+getOneAchivement(id){
+  return this.http.get(`${this.configViewUrl}/achievements/${id}`)    
+  .pipe(
+    catchError(this.handleError)
+  );
+  }
 
+ updateAchievement(obj: any): Observable<any> {
+    return this.http.post<any>(`${this.configViewUrl}achievements/`, obj, httpOptions)    
+  .pipe(
+    catchError(this.handleError)
+  );
+  }
 sendAchievement(obj: any): Observable<any> {
   return this.http.post<any>(`${this.configUrl}achievements/add_achievement/`, obj, httpOptions)    
 .pipe(
   catchError(this.handleError)
 );
 }
+// ============================================== Partners ==================================================
+
+sendPartner(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}static_partners/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+sendPartnerLogo(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}partners/add_partner/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+
+
+
+// ============================================== Donor ==================================================
+
+
+
+getAllDonors(): Observable<any> {
+  return this.http.get<any>(`${this.configUrl}members/getAllDonors/`, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+
+
+// ============================================== Donor ==================================================
+
+updateUser(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}edit_profile/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+
+
+
+
+
+
+// ============================================== About us ==================================================
+
+
+send_about_us_main(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_main/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+
+send_about_us_section_two(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_section_two/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+send_about_us_why_choose_us_01(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_why_choose_us_01/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+send_about_us_why_choose_us_02(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_why_choose_us_02/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+send_about_us_why_choose_us_03(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_why_choose_us_03/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+send_about_us_why_choose_us_04(obj: any): Observable<any> {
+  return this.http.post<any>(`${this.configUrl}about_us_why_choose_us_04/`, obj, httpOptions)    
+.pipe(
+  catchError(this.handleError)
+);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -5,6 +5,8 @@ import { ButtonsComponent } from './buttons.component';
 import { DropdownsComponent } from './dropdowns.component';
 import { BrandButtonsComponent } from './brand-buttons.component';
 import { SingleAchievmentComponent } from './single-achievment/single-achievment.component';
+import {  EditAchievmentComponent } from './edit-achievment/edit-achievment.component';
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,13 @@ const routes: Routes = [
       {
         path: 'new-achievement',
         component:SingleAchievmentComponent ,
+        data: {
+          title: 'Buttons'
+        }
+      },
+      {
+        path: 'edit-ach/:id',
+        component: EditAchievmentComponent,
         data: {
           title: 'Buttons'
         }

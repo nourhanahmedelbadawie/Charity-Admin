@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IconModule } from '@coreui/icons-angular';
 
@@ -14,7 +15,8 @@ import { IconsRoutingModule } from './icons-routing.module';
   imports: [
     CommonModule,
     IconsRoutingModule,
-    IconModule
+    IconModule ,
+    FormsModule, ReactiveFormsModule
   ],
   declarations: [
     CoreUIIconsComponent,

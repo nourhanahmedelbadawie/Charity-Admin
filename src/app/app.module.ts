@@ -54,6 +54,9 @@ import { ChartsModule } from 'ng2-charts';
 import { DropImageDirective } from './directives/drop-image.directive';
 import { AboutComponent } from './views/theme/about/about.component';
 import { SettingComponent } from './views/theme/setting/setting.component';
+import { AuthGuard } from './config/authguard.guard';
+import { EditAchievmentComponent } from './views/buttons/edit-achievment/edit-achievment.component';
+import { SingleDonationComponent } from './views/notifications/single-donation/single-donation.component';
 
 @NgModule({
  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]  , 
@@ -89,7 +92,9 @@ ReactiveFormsModule
     RegisterComponent,
     DropImageDirective,
     AboutComponent,
-    SettingComponent
+    SettingComponent,
+    EditAchievmentComponent,
+    SingleDonationComponent
   ],
   providers: [
     {
@@ -103,6 +108,7 @@ ReactiveFormsModule
       }
      ,
     IconSetService,
+    AuthGuard
   ],
   bootstrap: [ AppComponent ]
 

@@ -13,13 +13,13 @@ export class ColorsComponent implements OnInit {
   imageFilename1: string = null;
   imageFilename2: string = null;
   imageFilename3: string = null;
-  image:any=""
-  filepdf:any=""
-  ext
+  image: any = "";
+  filepdf: any = "";
+  ext;
 
   dragAreaClass: string;
-  CountSection=[1]
-  addCountSection(){
+  CountSection = [1];
+  addCountSection() {
     this.CountSection.push(this.CountSection.length);
   }
   onFileChange(event: any, flag) {
@@ -28,8 +28,7 @@ export class ColorsComponent implements OnInit {
   }
   async onpdfChange(event: any) {
     let files: FileList = event.target.files;
-    this.filepdf= await this.tobase4Service.getBase64(files[0])
-
+    this.filepdf = await this.tobase4Service.getBase64(files[0]);
   }
   ngOnInit() {
     this.dragAreaClass = "dragarea";
@@ -40,36 +39,32 @@ export class ColorsComponent implements OnInit {
     private configService: ConfigService
   ) {}
 
- async saveFiles(files: FileList, flag) {
-
-
-
+  async saveFiles(files: FileList, flag) {
     flag === 1 ? (this.imageFilename1 = files[0].name) : false;
     flag === 2 ? (this.imageFilename2 = files[0].name) : false;
     flag === 3 ? (this.imageFilename3 = files[0].name) : false;
-    this.image=await this.tobase4Service.getBase64(files[0])
-    this.ext=files[0].name.split('.').pop()
-    console.log("this.imageFilename1")
-
-    
+    this.image = await this.tobase4Service.getBase64(files[0]);
+    this.ext = files[0].name.split(".").pop();
+    console.log("this.imageFilename1");
   }
   // submotion form
   docForm = this.fb.group({
     title: ["", Validators.required],
     intro: ["", Validators.required],
- 
   });
   submit() {
-    let doc={ ...this.docForm.value ,image: this.image ,file: this.filepdf ,ext :this.ext}
-    console.log(doc)
+    let doc = {
+      ...this.docForm.value,
+      image: this.image,
+      file: this.filepdf,
+      ext: this.ext,
+    };
+    console.log(doc);
     this.configService
-      .sendDocScreen(JSON.stringify(doc
-        ))
+      .sendDocScreen(JSON.stringify(doc))
 
       .subscribe(
         (data: any) => {
-          // this.loginForm.reset()
-
           Swal.fire({
             title: "success",
             text: "Send successfuly",
@@ -78,7 +73,6 @@ export class ColorsComponent implements OnInit {
           });
         },
         (err) => {
-          // this.loginForm.reset()
           console.log(err);
 
           Swal.fire({
