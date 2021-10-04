@@ -507,3 +507,9 @@ table {
     font-size: 0.7rem;
   }
 }
+
+
+
+.no_border_after::after{
+  border: none !important;
+}

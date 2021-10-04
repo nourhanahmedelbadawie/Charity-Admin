@@ -10,34 +10,22 @@
             </a>
         </div>
        </div>
+   
        <div class="row">
-           <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/img/images-admin/achievemnt/tim-mossholder-vTA2Het76y8-unsplash.png" class="card-img-top" alt="...">
+           <div class="col-lg-4" *ngFor="let i of achs">
+            <div class="card" style="width: 18rem;" (click)="getAch(i.id)">
+                <img *ngIf="i.image_path ;else placeholder" src="{{ url + i.image_path }}"class="card-img-top" alt="...">
+                <ng-template #placeholder>
+                  <img src="../../../assets/img/images-admin/placeholder.png"class="card-img-top" alt="...">
+
+                </ng-template>
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">{{i.title}}</h5>
+                  <p class="card-text">{{i.title}}</p>
                 </div>
               </div>
            </div>
-           <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/img/images-admin/achievemnt/tanjir-ahmed-chowdhury-Nem1BLADG4c-unsplash.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-           </div>
-           <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img src="../../../assets/img/images-admin/achievemnt/nico-smit-NFoerQuvzrs-unsplash.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-              </div>
-           </div>
+          
        </div>
 
    </div>

@@ -1,0 +1,111 @@
+<div class="animated fadeIn">
+    <h3>Edit achievements</h3>
+    <div class="card card-main">
+      <div class="card-body">
+        <h4>Cover Photo</h4>
+  
+        <form [formGroup]="achForm" (submit)="submit($event)">
+          <section class="sec">
+  
+     
+          <div draggable="true" ngClass="{{ dragAreaClass }}" >
+  
+            <div class="row ">
+              <div class="col-md-12 text-center text">
+                <span
+                  ><img src="../../../assets/img/images-admin/home/upload.svg"
+                /></span>
+                <span *ngIf="!imageFilename1">Drag and drop Photo here</span>
+  
+                <span *ngIf="imageFilename1"> {{ imageFilename1 }} </span>
+                <a
+                  href="javascript:void(0)"
+                  class="main-btn"
+                  (click)="file.click()"
+                >
+                  Browse Photo
+                </a>
+  
+                <input
+                type="file"
+                #file
+                multiple="false"
+                (change)="onFileChange($event, 1)"
+                style="display: none"
+              />
+              </div>
+            </div>
+          </div>
+          
+        </section>
+        <section class="sec">
+  
+          <h4>Our New Achievements</h4>
+  
+          <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Write the title"
+              formControlName="title"
+  
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Intro</label>
+  
+            <input   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Write the Intro"         
+                      formControlName="intro"
+                >
+          </div>
+          <div class="d-flex form-group">
+            <label for="exampleInputEmail1">Image</label>
+          <div class="photo">
+              <div class="row ">
+                <div class="col-md-12 text-center text">
+                  <span
+                    ><img src="../../../assets/img/images-admin/home/upload.svg"
+                  /></span>
+                  <span *ngIf="!imageFilename2">Drag and drop Photo here</span>
+  
+                  <span *ngIf="imageFilename2"> {{ imageFilename2 }} </span>
+                  <a
+                    href="javascript:void(0)"
+                    class="main-btn"
+                    (click)="file.click()"
+                  >
+                    Browse Photo
+                  </a>
+    
+                  <input
+                  type="file"
+                  #file
+                  multiple="false"
+                  (change)="onFileChange($event, 2)"
+                  style="display: none"
+                />
+                
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Body</label>
+  
+            <textarea   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Write the body"
+                formControlName="body"></textarea>
+          </div>
+  </section>
+          <div class="d-flex justify-content-between">
+            <button class="main-btn" type="submit">Save</button>
+            <button class="main-btn" type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -16,6 +16,8 @@ import { ModalsComponent } from './modals.component';
 import { NotificationsRoutingModule } from './notifications-routing.module';
 import { NotificationsComponent } from '../theme/notifications/notifications.component';
 
+import {  AlldonationComponent } from "./alldonation/alldonation.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { NotificationsComponent } from '../theme/notifications/notifications.com
     AlertsComponent,
     BadgesComponent,
     ModalsComponent,
-    NotificationsComponent
+    NotificationsComponent ,
+    AlldonationComponent
   ]
 })
 export class NotificationsModule { }

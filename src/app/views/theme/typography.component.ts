@@ -22,6 +22,17 @@ export class TypographyComponent {
   dropArea = document.getElementById("drop-area");
 
   onFileChange(event: any) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.homeForm.patchValue({
+      avatar: file,
+    });
+    this.homeForm.get("cover").updateValueAndValidity();
+    console.log(this.homeForm.value);
+    var formData: any = new FormData();
+    formData.append("title", this.homeForm.get("title").value);
+    formData.append("cover", this.homeForm.get("cover").value);
+    console.log(formData);
+
     let files: FileList = event.target.files;
     this.saveFiles(files);
   }
@@ -29,28 +40,24 @@ export class TypographyComponent {
     this.dragAreaClass = "dragarea";
   }
 
-  getFileFormate(photo) {
-    var formData = new FormData();
-    formData.append("fileToUpload", photo);
-    console.log(formData);
-  }
-
   saveFiles(files: FileList) {
     if (files.length == 1) {
       this.fileName = files[0].name;
-      this.cover = [files[0]];
+      this.cover = [this.tobase4Service.getBase64(files[0])];
     } else {
       this.aboutFilename = [files[0].name, files[1].name, files[2].name];
-      this.images = [files[0], files[1], files[2]];
+      this.images = [this.tobase4Service.getBase64(files[0]), this.tobase4Service.getBase64(files[1]), this.tobase4Service.getBase64(files[2])];
     }
   }
 
   // submotion form
   homeForm = this.fb.group({
+    cover: [null],
     title: ["", Validators.required],
     subtitle: ["", Validators.required],
     about_section_title: ["", Validators.required],
     about_section_subtitle: ["", Validators.required],
+    image: [null],
   });
   submit() {
     let homeobj = {
@@ -68,8 +75,6 @@ export class TypographyComponent {
 
       .subscribe(
         (data: any) => {
-          // this.loginForm.reset()
-
           Swal.fire({
             title: "success",
             text: "Send successfuly",
@@ -78,7 +83,6 @@ export class TypographyComponent {
           });
         },
         (err) => {
-          // this.loginForm.reset()
           console.log(err);
 
           Swal.fire({

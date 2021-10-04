@@ -4,7 +4,7 @@
     <div class="card-body">
       <h4>Profile Info</h4>
 
-      <form>
+      <form [formGroup]="profiletForm" (submit)="submit()">
         <section class="d-flex align-items-center sec">
           <div class="form">
             <div class="form-group">
@@ -13,10 +13,11 @@
               <div class="form-group">
                 <div>
                   <input
-                    type="password"
+                    type="text"
                     class="form-control"
                     id="exampleInputPassword1"
                     placeholder="Arya Stark"
+                    formControlName="name"
                   />
                 </div>
               </div>
@@ -27,10 +28,11 @@
                 <div class="form-group">
                   <div>
                     <input
-                      type="password"
+                      type="email"
                       class="form-control"
                       id="exampleInputPassword1"
                       placeholder="Example@gmail.com"
+                      formControlName="email"
                     />
                   </div>
                 </div>
@@ -45,6 +47,8 @@
                       class="form-control"
                       id="exampleInputPassword1"
                       placeholder="........."
+                      formControlName="password"
+
                     />
                   </div>
                 </div>
@@ -57,7 +61,7 @@
             <p class="text-center warn">Remove profile picture </p>
           </div>
         </section>
-          <button class="main-btn" type="submit">Save Changes</button>
+          <button class="main-btn"   [disabled]="profiletForm.valid" type="submit">Save Changes</button>
       
       </form>
     </div>

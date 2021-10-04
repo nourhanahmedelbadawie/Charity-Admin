@@ -4,7 +4,7 @@
     <div class="card-body">
       <h4>Cover Photo</h4>
 
-      <form >
+      <form [formGroup]="partForm" (submit)="submit($event)">
         <section class="sec">
           <div draggable="true" ngClass="{{ dragAreaClass }}">
             <div class="row">
@@ -22,19 +22,17 @@
                 >
                   Browse Photo
                 </a>
-  
+
                 <input
-                type="file"
-                #file
-                multiple="false"
-                (change)="onFileChange($event)"
-                style="display: none"
-              />
-                
+                  type="file"
+                  #file
+                  multiple="false"
+                  (change)="onFileChange($event, 1)"
+                  style="display: none"
+                />
               </div>
             </div>
           </div>
-         
         </section>
         <section>
           <h4>Partners Intro</h4>
@@ -57,128 +55,132 @@
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
               formControlName="intro"
-
             ></textarea>
           </div>
-
-          <div class="photo form-group">
+          <div class="d-flex">
             <label for="exampleInputEmail1">Image</label>
-
-            <div class="text">
-              <span
-                ><img
-                  src="../../../assets/img/images-admin/home/upload.svg"
-                  class="ml-1"
-                />
-                You can drag and drop files here to add them.</span
+            <div class="photo">
+              <div class="text">
+                <span
+                  ><img src="../../../assets/img/images-admin/home/upload.svg"
+                /></span>
+                <div>
+                  <span *ngIf="!imageFilename2"
+                    >You can  drag and drop files here to add them.</span
+                  >
+                  <span *ngIf="imageFilename2">{{ imageFilename2 }}</span>
+                </div>
+                <a
+                href="javascript:void(0)"
+                class="main-btn"
+                (click)="file2.click()"
               >
-              <button class="main-btn">Browse Photo</button>
+                Browse Photo
+              </a>
+                <input
+                  type="file"
+                  #file2
+                  multiple="false"
+                  (change)="onFileChange($event, 2)"
+                  style="display: none"
+                />
+               
+              </div>
             </div>
           </div>
         </section>
         <section class="sec">
           <div class="d-flex justify-content-between mb-4">
             <h4>Our Partner</h4>
-            <button class="main-btn">Add New</button>
+            <button class="main-btn" type="button" (click)="addCountSection()">
+              Add New
+            </button>
           </div>
-      
+
           <div class="form-group">
             <label for="exampleInputEmail1">Intro</label>
             <textarea
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Write the Subtitle"
-              formControlName="title"
-
+              placeholder="Write the Intro"
+              formControlName="our_partners"
             ></textarea>
           </div>
+<section *ngIf="CountSection.length === 1">
+  <div class="form-group" *ngFor="let i of CountSection">
+          
+    <label>
+      Company 
+    </label>
+   
+    <label for="exampleInputEmail1">Upload</label>
+    <div class="upload">
+      <input
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        type="file"
+        placeholder="uploade icon image png"
+        value="uploade icon image png"
+        (change)="onpdfChange($event)"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="uploade icon image png"
+      />
 
-      
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
+      <button
+        class="main-btn"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="uploade icon image png"
+      >
+        Upload File
+      </button>
+    </div>
+  </div>
+</section>
+<section *ngIf="CountSection.length > 1">
+
+          <div class="form-group" *ngFor="let i of CountSection">
+          
+           
+            <label >
+              Company {{ i }}
+            </label>
+            <label for="exampleInputEmail1">Upload</label>
             <div class="upload">
               <input
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
+                type="file"
+                placeholder="uploade icon image png"
+                value="uploade icon image png"
+                (change)="onpdfChange($event)"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="uploade icon image png"
               />
 
-              <button class="main-btn">Upload File</button>
+              <button
+                class="main-btn"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="uploade icon image png"
+              >
+                Upload File
+              </button>
             </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
-            <div class="upload">
-              <input
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
-              />
-
-              <button class="main-btn">Upload File</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
-            <div class="upload">
-              <input
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
-              />
-
-              <button class="main-btn">Upload File</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
-            <div class="upload">
-              <input
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
-              />
-
-              <button class="main-btn">Upload File</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
-            <div class="upload">
-              <input
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
-              />
-
-              <button class="main-btn">Upload File</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Company 1</label>
-            <div class="upload">
-              <input
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Write the Subtitle"
-              />
-
-              <button class="main-btn">Upload File</button>
-            </div>
-          </div>
+       
         </section>
-
+      </section>
         <div class="d-flex justify-content-between btns">
-          <button class="main-btn" type="submit">Save</button>
+          <button class="main-btn"   [disabled]="partForm.valid" type="submit">Save</button>
           <button class="main-btn" type="button">Cancel</button>
         </div>
+        
       </form>
     </div>
   </div>
