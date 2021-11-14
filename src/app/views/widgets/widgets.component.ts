@@ -7,16 +7,19 @@ import { ConfigService } from "../../config/config.service";
   templateUrl: "widgets.component.html",
 })
 export class WidgetsComponent {
-  // lineChart1
-
+donors
   constructor(private configService: ConfigService) { 
     this.configService.getAllDonors().subscribe(data =>{
       console.log(data)
+      this.donors=data
     })
 
   }
 
-
+getDate(date){
+let newDate=new Date(date).toLocaleDateString("en-US")
+return newDate
+}
 
 
 }

@@ -12,27 +12,33 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
+              <th>Name</th>
+              <th>Phone Num.</th>
               <th>Email</th>
+              <th>Date</th>
+              <th>Payment Method</th>
+              <th>Amount</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
+            <!-- {
+              "id": 2,
+              "name": "Sameh Eldawy",
+              "phone": "01011122821",
+              "email": "sameh@gmail.com",
+              "created_at": "2021-08-10T12:19:45.000000Z",
+              "updated_at": "2021-08-10T12:20:09.000000Z"
+          } -->
+            <tr *ngFor="let item of donors">
+              <td>{{item.name}}</td>
+              <td>{{item.phone}}</td>
+              <td>{{item.email}}</td>
+              <td> {{getDate(item.date)}}</td>
+              <td>{{item.method_name}}</td>
+              <td>{{item.email}}</td>
             </tr>
-            <tr>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-            </tr>
-            <tr>
-              <td>July</td>
-              <td>Dooley</td>
-              <td>july@example.com</td>
-            </tr>
+          
           </tbody>
         </table>
       </div>

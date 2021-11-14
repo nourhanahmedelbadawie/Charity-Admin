@@ -71,8 +71,8 @@ export const routes: Routes = [
         loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
       },
       {
-        path: 'notifications',
-        loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
+        path: 'donations',
+        loadChildren: () => import('./views/donations/donations.module').then(m => m.DonationsModule)
       },
       {
         path: 'admin',

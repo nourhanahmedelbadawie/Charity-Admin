@@ -38,7 +38,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input
-              type="email"
+              
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -49,7 +49,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Subtitle</label>
             <input
-              type="email"
+              
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -64,7 +64,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input
-              type="email"
+              
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -75,7 +75,7 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Body</label>
             <textarea
-              type="email"
+              
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -129,7 +129,7 @@
             class="main-btn"
             type="submit"
             [disabled]="
-              !homeForm.valid || !fileName || aboutFilename.length !== 3
+              !homeForm.valid || !fileName || aboutFilename.length !== 3 || loadingSubmitBtn
             "
           >
             Save

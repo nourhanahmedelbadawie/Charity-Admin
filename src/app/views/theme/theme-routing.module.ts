@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ColorsComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
+import { DocumentListComponent } from './document-list/document-list.component';
 
 const routes: Routes = [
   {
@@ -16,11 +17,17 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'doc'
+        redirectTo: 'doc-list'
       },
       {
-        path: 'doc',
+        path: 'new-doc',
         component: ColorsComponent,
+        data: {
+          title: 'Colors'
+        }
+      },     {
+        path: 'doc',
+        component: DocumentListComponent,
         data: {
           title: 'Colors'
         }

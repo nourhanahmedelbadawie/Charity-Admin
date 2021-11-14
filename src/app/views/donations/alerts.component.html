@@ -4,7 +4,7 @@
     <div class="card-body">
       <h4>Cover Photo</h4>
 
-      <form>
+      <form [formGroup]="donationForm" (submit)="submit()">
         <section class="sec">
           <div draggable="true" ngClass="{{ dragAreaClass }}">
             <div class="row">
@@ -12,7 +12,9 @@
                 <span
                   ><img src="../../../assets/img/images-admin/home/upload.svg"
                 /></span>
-                <span>Drag and drop Photo here</span>
+                <span *ngIf="!imageFilename1">Drag and drop Photo here</span>
+
+                <span *ngIf="imageFilename1"> {{ imageFilename1 }} </span>
                 <a
                   href="javascript:void(0)"
                   class="main-btn"
@@ -24,61 +26,86 @@
                 <input
                   type="file"
                   #file
-                  [multiple]="false"
-                  (change)="onFileChange($event)"
+                  multiple="false"
+                  (change)="onFileChange($event ,1)"
                   style="display: none"
                 />
               </div>
             </div>
           </div>
         </section>
-   
+
         <section class="sec">
           <h4>Our New Achivement</h4>
 
           <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input
-              type="email"
+                
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the title"
+               formControlName="title"
             />
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Intro</label>
-            <input
-              type="email"
+            <textarea
+                
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Intro"
-            />
+               formControlName="description"
+            ></textarea>
           </div>
           <div class="d-flex form-group">
             <label for="exampleInputEmail1">Image</label>
+
             <div class="photo">
               <div class="text">
                 <span
                   ><img src="../../../assets/img/images-admin/home/upload.svg"
                 /></span>
-                <span class="no-margin"
-                  >You can drag and drop files here to add them.</span
+                <div *ngIf="!imageFilename2">
+                  <span class="no-margin"
+                    >You can drag and drop files here to add them.</span
+                  >
+                </div>
+                <div *ngIf="imageFilename2" class="aboutFilename">
+                  <span>
+                    {{ imageFilename2 }}
+                  </span>
+                </div>
+
+                <input
+                  type="file"
+                  #file2
+                  multiple
+                  (change)="onFileChange($event, 2)"
+                  style="display: none"
+                />
+                <a
+                  href="javascript:void(0)"
+                  class="main-btn"
+                  (click)="file2.click()"
                 >
-               
-                <button class="main-btn">Browse Photo</button>
+                  Browse Photo
+                </a>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Goal</label>
             <input
-              type="email"
+                type="number"
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Write the Subtitle"
+               formControlName="goal"
+
             />
           </div>
         </section>

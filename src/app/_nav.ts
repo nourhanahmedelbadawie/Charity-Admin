@@ -41,7 +41,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Donations',
-    url: '/notifications/donations',
+    url: '/donations/donations',
     icon: 'icon-bell',
    
   },
@@ -50,25 +50,6 @@ export const navItems: INavData[] = [
     url: '/widgets',
     icon: 'icon-calculator',
     
-  },
-  {
-    divider: true
-  },
-  {
-    title: true,
-    name: 'Extras',
-  },
-  {
-    name: 'About us',
-    url: '/admin/about',
-    icon: 'icon-star',
-   
-  },
-  {
-    name: 'setting',
-    url: '/admin/setting',
-    icon: 'icon-ban',
- 
   }
  
 ];

@@ -1,0 +1,240 @@
+<div class="animated fadeIn">
+  <div class="container">
+    <div class="row">
+      <h3>Donations</h3>
+    </div>
+
+    <div class="card card-main">
+      <div class="d-flex align-items-center justify-content-between">
+        <h3>Quik Donations</h3>
+        <button class="main-btn" (click)="goNewDonation()">Add</button>
+      </div>
+      <div class="card-body quick">
+        <section>
+          <div class="row">
+            <!-- {
+                  "id": 1,
+                  "title": "school",
+                  "description": "department for needy updated",
+                  "goal": "5,000",
+                  "received": "4,999",
+                  "need": "1",
+                  "is_urgent": 0,
+                  "cover_path": null,
+                  "image_path": null,
+                  "is_achieved": 0,
+                  "from": "2 months ago",
+                  "donors_count": 0
+              } -->
+
+            <div class="current">
+              <img
+                *ngIf="!(allUrgentDep | async).image_path"
+                src="assets/img/images-admin/achievemnt/1.png"
+              />
+              <img
+                *ngIf="(allUrgentDep | async).image_path"
+                src="assets/img/images-admin/achievemnt/1.png"
+              />
+
+              <div>
+                <h4 (click)="gosingleDonationt()">
+                  {{ (allUrgentDep | async).title }}
+                </h4>
+
+                <p>
+                  {{ (allUrgentDep | async).description }}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Goal</p>
+                      <p>{{ (allUrgentDep | async).goal }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/1.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>{{ (allUrgentDep | async).from }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Recieved</p>
+                      <p>{{ (allUrgentDep | async).received }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/2.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>{{ (allUrgentDep | async).is_achieved }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Doners</p>
+                      <p>{{ (allUrgentDep | async).from }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/3.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>Since last week</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <hr class="gray-border" />
+
+      <div class="d-flex align-items-center justify-content-between">
+        <h3>Current Donations</h3>
+        <a class="main-btn" routerLink="/donations/newdonation">Add</a>
+      </div>
+
+      <div class="card-body quick">
+        <section *ngFor="let item of allCurrentDep | async">
+          <div class="row">
+            <!-- {
+            "id": 1,
+            "title": "school",
+            "description": "department for needy updated",
+            "goal": "5,000",
+            "received": "4,999",
+            "need": "1",
+            "is_urgent": 0,
+            "cover_path": null,
+            "image_path": null,
+            "is_achieved": 0,
+            "from": "2 months ago",
+            "donors_count": 0
+        } -->
+
+            <div class="current">
+              <img
+                *ngIf="!item.image_path"
+                src="assets/img/images-admin/achievemnt/1.png"
+              />
+              <img
+                *ngIf="item.image_path"
+                src="assets/img/images-admin/achievemnt/1.png"
+              />
+
+              <div>
+                <h4 (click)="gosingleDonationt()">{{ item.title }}</h4>
+
+                <p>
+                  {{ item.description }}
+                </p>
+                <button
+                  class="main-btn"
+                  (click)="makeUrgentDepartment(item.id, item)"
+                >
+                  Make urgent
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Goal</p>
+                      <p>{{ item.goal }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/1.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>{{ item.from }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Recieved</p>
+                      <p>{{ item.received }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/2.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>{{ item.is_achieved }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body donation-card">
+                  <div>
+                    <div class="card-text">
+                      <p>Doners</p>
+                      <p>{{ item.from }}</p>
+                    </div>
+
+                    <figure>
+                      <img src="assets/img/images-admin/Donation/3.svg" />
+                    </figure>
+                  </div>
+                  <div>
+                    <p class="priColor">12pp</p>
+
+                    <p>Since last week</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
