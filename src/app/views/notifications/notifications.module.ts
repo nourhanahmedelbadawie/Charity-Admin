@@ -1,7 +1,7 @@
 // Angular
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Alert Component
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { AlertsComponent } from './alerts.component';
@@ -23,7 +23,8 @@ import {  AlldonationComponent } from "./alldonation/alldonation.component";
     CommonModule,
     NotificationsRoutingModule,
     AlertModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot() ,
+    FormsModule, ReactiveFormsModule
   ],
   declarations: [
     AlertsComponent,

@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -9,7 +11,8 @@ import { WidgetsRoutingModule } from './widgets-routing.module';
   imports: [
     WidgetsRoutingModule,
     ChartsModule,
-    BsDropdownModule
+    BsDropdownModule ,
+    CommonModule
   ],
   declarations: [ WidgetsComponent ]
 })

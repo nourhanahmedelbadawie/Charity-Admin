@@ -13,6 +13,7 @@ export class AboutComponent implements OnInit {
   imageFilename1: string;
   imageFilename3: string;
   imageFilename2: string;
+  loadSubmitBtn:boolean[]=[false,false,false,false,false,false]
   constructor(
     private fb: FormBuilder,
     private tobase4Service: Tobase4Service ,
@@ -21,15 +22,15 @@ export class AboutComponent implements OnInit {
 
   fileName: string = null;
   dragAreaClass: string;
-  cover_about_us_main;
+  cover_about_us_main=null;;
   cover_about_us_main_base64;
   cover_about_us_main_ext;
 
-  image_about_us_main;
+  image_about_us_main =null;
   image_about_us_main_base64;
   image_about_us_main_ext;
 
-  image_about_us_section_two;
+  image_about_us_section_two=null;
   image_about_us_section_two_base64;
   image_about_us_section_two_ext;
 
@@ -104,11 +105,16 @@ export class AboutComponent implements OnInit {
     title: ["", Validators.required],
     intro: ["", Validators.required],
   });
+
+
+
   submit_about_us_main() {
+    this.loadSubmitBtn[0]=true
+
     this.configService
     .send_about_us_main(JSON.stringify({...this.about_us_main.value , cover:this.cover_about_us_main 
-      ,image:this.image_about_us_main , ext:this.image_about_us_section_two_ext
-    ,cover_ext:this.cover_about_us_main_ext } ))
+      ,image:this.image_about_us_main , ext:this.image_about_us_main_ext
+    ,cov_ext:this.cover_about_us_main_ext } ))
 
     .subscribe(
       (data: any) => {
@@ -118,6 +124,10 @@ export class AboutComponent implements OnInit {
           icon: "success",
           confirmButtonText: "Ok",
         });
+        this.loadSubmitBtn[0]=false
+        this.image_about_us_main=null
+        this.about_us_main.reset()
+
       },
       (err) => {
         console.log(err);
@@ -128,11 +138,19 @@ export class AboutComponent implements OnInit {
           icon: "error",
           confirmButtonText: "Ok",
         });
+        this.loadSubmitBtn[0]=false
+        this.image_about_us_main=null
+        this.about_us_main.reset()
+
+
+
       }
     );
 }
 
 submit_about_us_section_two() {
+  this.loadSubmitBtn[1]=true
+
   this.configService
   .send_about_us_section_two(JSON.stringify({...this.about_us_section_two.value , 
     image:this.image_about_us_section_two , ext:this.image_about_us_section_two_ext
@@ -146,6 +164,10 @@ submit_about_us_section_two() {
         icon: "success",
         confirmButtonText: "Ok",
       });
+
+      this.loadSubmitBtn[1]=false
+        this.image_about_us_section_two=null
+        this.about_us_section_two.reset()
     },
     (err) => {
       console.log(err);
@@ -156,10 +178,17 @@ submit_about_us_section_two() {
         icon: "error",
         confirmButtonText: "Ok",
       });
+      
+      this.loadSubmitBtn[1]=false
+        this.image_about_us_section_two=null
+        this.about_us_section_two.reset()
+
     }
   );
 }
 submit_about_us_why_choose_us_01() {
+  
+  this.loadSubmitBtn[2]=true
   this.configService
   .send_about_us_why_choose_us_01(JSON.stringify({...this.about_us_why_choose_us_01.value 
     ,image:this.image_about_us_why_choose_us_01  } ))
@@ -172,6 +201,10 @@ submit_about_us_why_choose_us_01() {
         icon: "success",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[2]=false
+      this.image_about_us_why_choose_us_01=null
+      this.about_us_why_choose_us_01.reset()
+
     },
     (err) => {
       console.log(err);
@@ -182,10 +215,15 @@ submit_about_us_why_choose_us_01() {
         icon: "error",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[2]=false
+      this.image_about_us_why_choose_us_01=null
+      this.about_us_why_choose_us_01.reset()
     }
   );
 }
 submit_about_us_why_choose_us_02() {
+  this.loadSubmitBtn[3]=true
+
   this.configService
   .send_about_us_why_choose_us_02(JSON.stringify({...this.about_us_why_choose_us_02.value
     ,image:this.image_about_us_why_choose_us_02
@@ -199,6 +237,11 @@ submit_about_us_why_choose_us_02() {
         icon: "success",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[3]=false
+      this.image_about_us_why_choose_us_02=
+      this.about_us_why_choose_us_02.reset()
+
+
     },
     (err) => {
       console.log(err);
@@ -209,10 +252,16 @@ submit_about_us_why_choose_us_02() {
         icon: "error",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[3]=false
+      this.image_about_us_why_choose_us_02=null
+      this.about_us_why_choose_us_02.reset()
+
     }
   );
 }
 submit_about_us_why_choose_us_03() {
+  this.loadSubmitBtn[4]=true
+
   this.configService
   .send_about_us_why_choose_us_03(JSON.stringify({...this.about_us_why_choose_us_03.value 
     ,image:this.image_about_us_why_choose_us_03
@@ -226,6 +275,11 @@ submit_about_us_why_choose_us_03() {
         icon: "success",
         confirmButtonText: "Ok",
       });
+
+      this.loadSubmitBtn[4]=false
+      this.image_about_us_why_choose_us_03=null
+      this.about_us_why_choose_us_03.reset()
+
     },
     (err) => {
       console.log(err);
@@ -236,10 +290,15 @@ submit_about_us_why_choose_us_03() {
         icon: "error",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[4]=false
+      this.image_about_us_why_choose_us_03=null
+      this.about_us_why_choose_us_03.reset()
+
     }
   );
 }
 submit_about_us_why_choose_us_04() {
+  this.loadSubmitBtn[5]=true
   this.configService
   .send_about_us_why_choose_us_04(JSON.stringify({...this.about_us_why_choose_us_04.value 
     ,image:this.image_about_us_why_choose_us_04
@@ -253,6 +312,11 @@ submit_about_us_why_choose_us_04() {
         icon: "success",
         confirmButtonText: "Ok",
       });
+
+      this.loadSubmitBtn[5]=false
+      this.image_about_us_why_choose_us_04=null
+      this.about_us_why_choose_us_04.reset()
+
     },
     (err) => {
       console.log(err);
@@ -263,6 +327,10 @@ submit_about_us_why_choose_us_04() {
         icon: "error",
         confirmButtonText: "Ok",
       });
+      this.loadSubmitBtn[5]=false
+      this.image_about_us_why_choose_us_04=null
+      this.about_us_why_choose_us_04.reset()
+
     }
   );
 }

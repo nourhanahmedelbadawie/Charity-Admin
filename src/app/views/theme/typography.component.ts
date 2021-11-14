@@ -15,6 +15,7 @@ export class TypographyComponent {
     private configService: ConfigService
   ) {}
   fileName: string = null;
+  loadingSubmitBtn:boolean=false
   dragAreaClass: string;
   cover;
   images;
@@ -27,11 +28,7 @@ export class TypographyComponent {
       avatar: file,
     });
     this.homeForm.get("cover").updateValueAndValidity();
-    console.log(this.homeForm.value);
-    var formData: any = new FormData();
-    formData.append("title", this.homeForm.get("title").value);
-    formData.append("cover", this.homeForm.get("cover").value);
-    console.log(formData);
+    
 
     let files: FileList = event.target.files;
     this.saveFiles(files);
@@ -40,13 +37,15 @@ export class TypographyComponent {
     this.dragAreaClass = "dragarea";
   }
 
-  saveFiles(files: FileList) {
+ async saveFiles(files: FileList) {
     if (files.length == 1) {
       this.fileName = files[0].name;
-      this.cover = [this.tobase4Service.getBase64(files[0])];
+      this.cover = [await this.tobase4Service.getBase64(files[0])];
     } else {
       this.aboutFilename = [files[0].name, files[1].name, files[2].name];
-      this.images = [this.tobase4Service.getBase64(files[0]), this.tobase4Service.getBase64(files[1]), this.tobase4Service.getBase64(files[2])];
+      this.images = [await this.tobase4Service.getBase64(files[0]),
+       await this.tobase4Service.getBase64(files[1]), 
+       await this.tobase4Service.getBase64(files[2])];
     }
   }
 
@@ -60,6 +59,7 @@ export class TypographyComponent {
     image: [null],
   });
   submit() {
+    this.loadingSubmitBtn=true
     let homeobj = {
       title: this.homeForm.value.title,
       subtitle: this.homeForm.value.subtitle,
@@ -69,7 +69,6 @@ export class TypographyComponent {
       body: this.homeForm.value.about_section_subtitle,
       image: [...this.images],
     };
-    console.log(homeobj);
     this.configService
       .sendHomeScreen(JSON.stringify(homeobj))
 
@@ -81,6 +80,10 @@ export class TypographyComponent {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          this.homeForm.reset()
+          this.loadingSubmitBtn=false
+          this.images=null
+          this.cover=null
         },
         (err) => {
           console.log(err);
@@ -91,6 +94,10 @@ export class TypographyComponent {
             icon: "error",
             confirmButtonText: "Ok",
           });
+          this.homeForm.reset()
+          this.loadingSubmitBtn=false
+          this.images=null
+          this.cover=null
         }
       );
   }

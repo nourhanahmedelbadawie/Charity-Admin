@@ -1,10 +1,11 @@
 // Angular
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { ColorsComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInterceptor } from '../../provider/user.interceptor';
 
 

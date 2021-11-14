@@ -7,7 +7,7 @@ import {  ConfigService } from "../../config/config.service";
 })
 export class ButtonsComponent {
    achs=[]
-   url="http://178.62.19.101:8888/"
+   url="http://137.184.108.244:8081/"
 
   constructor(private configService:ConfigService , private route:Router) { 
     this.getAchievement()

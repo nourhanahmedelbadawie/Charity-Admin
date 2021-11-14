@@ -13,12 +13,15 @@ export class ColorsComponent implements OnInit {
   imageFilename1: string = null;
   imageFilename2: string = null;
   imageFilename3: string = null;
+  loadingSubmitBtn: boolean = false;
   image: any = "";
   filepdf: any = "";
   ext;
 
   dragAreaClass: string;
   CountSection = [1];
+  cover: unknown;
+  cov_ext: any;
   addCountSection() {
     this.CountSection.push(this.CountSection.length);
   }
@@ -40,9 +43,17 @@ export class ColorsComponent implements OnInit {
   ) {}
 
   async saveFiles(files: FileList, flag) {
-    flag === 1 ? (this.imageFilename1 = files[0].name) : false;
-    flag === 2 ? (this.imageFilename2 = files[0].name) : false;
-    flag === 3 ? (this.imageFilename3 = files[0].name) : false;
+    if (flag === 1) {
+      this.imageFilename1 = files[0].name;
+      this.cover = await this.tobase4Service.getBase64(files[0]);
+      this.cov_ext = files[0].name.split(".").pop();
+    }
+    if (flag === 2) {
+      this.imageFilename2 = files[0].name;
+    }
+    if (flag === 3) {
+      this.imageFilename3 = files[0].name;
+    }
     this.image = await this.tobase4Service.getBase64(files[0]);
     this.ext = files[0].name.split(".").pop();
     console.log("this.imageFilename1");
@@ -58,8 +69,10 @@ export class ColorsComponent implements OnInit {
       image: this.image,
       file: this.filepdf,
       ext: this.ext,
+      cover: this.cover,
+      cov_ext: this.cov_ext,
     };
-    console.log(doc);
+    this.loadingSubmitBtn = true;
     this.configService
       .sendDocScreen(JSON.stringify(doc))
 
@@ -71,6 +84,11 @@ export class ColorsComponent implements OnInit {
             icon: "success",
             confirmButtonText: "Ok",
           });
+          this.loadingSubmitBtn = false;
+          this.imageFilename1 = null;
+          this.imageFilename2 = null;
+          this.imageFilename3 = null;
+          this.docForm.reset();
         },
         (err) => {
           console.log(err);
@@ -81,6 +99,11 @@ export class ColorsComponent implements OnInit {
             icon: "error",
             confirmButtonText: "Ok",
           });
+          this.loadingSubmitBtn = false;
+          this.imageFilename1 = null;
+          this.imageFilename2 = null;
+          this.imageFilename3 = null;
+          this.docForm.reset();
         }
       );
   }

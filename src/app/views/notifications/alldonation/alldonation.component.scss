@@ -6,6 +6,12 @@
     margin-bottom: 40px;
     min-height: 220px;
     align-items: center;
+    width:100%;
+    h4{
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 > div{
 padding: 5px;
 }
