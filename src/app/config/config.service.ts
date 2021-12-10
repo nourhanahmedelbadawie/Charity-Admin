@@ -205,7 +205,6 @@ getUrgentDepartment(): Observable<any> {
 );
 }
 
-
 makeUrgentDepartment(id ,obj): Observable<any> {
   return this.http.put<any>(`${this.configUrl}departments/make_urgent/${id}`, obj , httpOptions)    
 .pipe(
