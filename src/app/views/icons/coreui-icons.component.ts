@@ -44,33 +44,31 @@ export class CoreUIIconsComponent implements OnInit {
 
   async onpdfChange(event: any) {
     let files: FileList = event.target.files;
-    let imgFormate=await this.tobase4Service.getBase64(files[0])
-    this.configService.sendPartnerLogo({icon_image:imgFormate})
-    
-    .subscribe(
-      (data: any) => {
-        Swal.fire({
-          title: "success",
-          text: "Send successfuly",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-      },
-      (err) => {
-        console.log(err);
+    let imgFormate = await this.tobase4Service.getBase64(files[0]);
+    this.configService
+      .sendPartnerLogo({ icon_image: imgFormate })
 
-        Swal.fire({
-          title: "Error",
-          text: "Something went wrong ",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
-      }
-    );
-}
-  
+      .subscribe(
+        (data: any) => {
+          Swal.fire({
+            title: "success",
+            text: "Send successfuly",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        },
+        (err) => {
+          console.log(err);
 
- 
+          Swal.fire({
+            title: "Error",
+            text: "Something went wrong ",
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        }
+      );
+  }
 
   async saveFiles(files: FileList, flag) {
     if (flag === 1) {
@@ -100,7 +98,6 @@ export class CoreUIIconsComponent implements OnInit {
       cover: this.cover,
       ext: this.ext,
       cov_ext: this.cov_ext,
-
     };
     console.log(doc);
     this.configService
@@ -128,6 +125,3 @@ export class CoreUIIconsComponent implements OnInit {
       );
   }
 }
- 
-
-

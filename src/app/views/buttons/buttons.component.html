@@ -1,32 +1,41 @@
 <div class="cards achievemnt">
-  
-   
-   <div class="container">
-       <div class="row">
-        <div class="d-flex justify-content-between align-items-sm-center">
-            <h3>Achievements</h3> 
-            <a routerLink="/admin/new-achievement" class="main-btn">
-                Add New Achievements
-            </a>
+  <div class="container">
+    <div class="row">
+      <div class="d-flex justify-content-between align-items-sm-center">
+        <h3>Achievements</h3>
+        <a routerLink="/admin/new-achievement" class="main-btn">
+          Add New Achievements
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let i of achievementList | async">
+        <div class="card" style="width: 18rem">
+          <img
+            *ngIf="i.image_path; else placeholder"
+            src="{{ url + i.image_path }}"
+            class="card-img-top"
+            style="height: 200px; object-fit: cover"
+            />
+          <ng-template #placeholder>
+            <img
+              src="../../../assets/img/images-admin/placeholder.png"
+              class="card-img-top"
+              style="height: 200px; object-fit: cover"
+              alt="..."
+            />
+          </ng-template>
+          <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.title }}</p>
+            <button class="btn btn-danger" (click)="deleteAchievement(i.id)">
+              Delete
+            </button>
+            <a (click)="getAch(i.id)">Edit</a>
+          </div>
         </div>
-       </div>
-   
-       <div class="row">
-           <div class="col-lg-4" *ngFor="let i of achs">
-            <div class="card" style="width: 18rem;" (click)="getAch(i.id)">
-                <img *ngIf="i.image_path ;else placeholder" src="{{ url + i.image_path }}"class="card-img-top" alt="...">
-                <ng-template #placeholder>
-                  <img src="../../../assets/img/images-admin/placeholder.png"class="card-img-top" alt="...">
-
-                </ng-template>
-                <div class="card-body">
-                  <h5 class="card-title">{{i.title}}</h5>
-                  <p class="card-text">{{i.title}}</p>
-                </div>
-              </div>
-           </div>
-          
-       </div>
-
-   </div>
+      </div>
+    </div>
+  </div>
 </div>

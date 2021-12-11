@@ -1,0 +1,36 @@
+<div class="animated fadeIn">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex justify-content-between align-items-sm-center w-100">
+          <h3>Partner-list</h3>
+          <a routerLink="/admin/new-partner" class="main-btn"> Add New Documnet </a>
+        </div>
+      </div>
+  
+      <div class="card card-main no_border_after">
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th style="width: 10%">Action</th>
+              </tr>
+            </thead>
+            <tbody style="width: 100%">
+              <tr *ngFor="let item of partners | async">
+                <td>      <img src="{{ baseUrl +  item.company_name }}" />
+                </td>
+                <td style="width: 20%">
+                  <div class="d-flex jjustify-content-between align-items-center">
+                
+                    <button class="btn btn-danger" (click)="deletegetPartner(item.id)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

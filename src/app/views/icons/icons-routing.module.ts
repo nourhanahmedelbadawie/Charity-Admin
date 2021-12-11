@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoreUIIconsComponent } from './coreui-icons.component';
 import { FlagsComponent } from './flags.component';
 import { FontAwesomeComponent } from './font-awesome.component';
+import { PartnersListComponent } from './partners-list/partners-list.component';
 import { SimpleLineIconsComponent } from './simple-line-icons.component';
 
 const routes: Routes = [
@@ -15,14 +16,17 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'coreui-icons'
+        redirectTo: 'partners'
       },
       {
         path: 'partners',
+        component: PartnersListComponent,
+     
+      },
+      {
+        path: 'new-partner',
         component: CoreUIIconsComponent,
-        data: {
-          title: 'CoreUI Icons'
-        }
+     
       },
       {
         path: 'flags',

@@ -187,11 +187,12 @@ submit_about_us_section_two() {
   );
 }
 submit_about_us_why_choose_us_01() {
-  
+  console.log({...this.about_us_why_choose_us_01.value 
+    ,image_path:this.image_about_us_why_choose_us_01  } )
   this.loadSubmitBtn[2]=true
   this.configService
   .send_about_us_why_choose_us_01(JSON.stringify({...this.about_us_why_choose_us_01.value 
-    ,image:this.image_about_us_why_choose_us_01  } ))
+    ,image_path:this.image_about_us_why_choose_us_01  } ))
 
   .subscribe(
     (data: any) => {
@@ -204,7 +205,7 @@ submit_about_us_why_choose_us_01() {
       this.loadSubmitBtn[2]=false
       this.image_about_us_why_choose_us_01=null
       this.about_us_why_choose_us_01.reset()
-
+debugger
     },
     (err) => {
       console.log(err);
@@ -226,7 +227,7 @@ submit_about_us_why_choose_us_02() {
 
   this.configService
   .send_about_us_why_choose_us_02(JSON.stringify({...this.about_us_why_choose_us_02.value
-    ,image:this.image_about_us_why_choose_us_02
+    ,image_path:this.image_about_us_why_choose_us_02
  } ))
 
   .subscribe(
@@ -264,7 +265,7 @@ submit_about_us_why_choose_us_03() {
 
   this.configService
   .send_about_us_why_choose_us_03(JSON.stringify({...this.about_us_why_choose_us_03.value 
-    ,image:this.image_about_us_why_choose_us_03
+    ,image_path:this.image_about_us_why_choose_us_03
  } ))
 
   .subscribe(
@@ -301,7 +302,7 @@ submit_about_us_why_choose_us_04() {
   this.loadSubmitBtn[5]=true
   this.configService
   .send_about_us_why_choose_us_04(JSON.stringify({...this.about_us_why_choose_us_04.value 
-    ,image:this.image_about_us_why_choose_us_04
+    ,image_path:this.image_about_us_why_choose_us_04
  } ))
 
   .subscribe(

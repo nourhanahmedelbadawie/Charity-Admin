@@ -50,6 +50,12 @@ export const navItems: INavData[] = [
     url: '/widgets',
     icon: 'icon-calculator',
     
+  },
+  {
+    name: 'About',
+    url: '/admin/about',
+    icon: 'icon-calculator',
+    
   }
- 
+  
 ];

@@ -59,6 +59,7 @@ import { EditAchievmentComponent } from './views/buttons/edit-achievment/edit-ac
 import { SingleDonationComponent } from './views/donations/single-donation/single-donation.component';
 import { NewDonationComponent } from './views/donations/new-donation/new-donation.component';
 import { DocumentListComponent } from './views/theme/document-list/document-list.component';
+import { PartnersListComponent } from './views/icons/partners-list/partners-list.component';
 
 @NgModule({
  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]  , 
@@ -98,7 +99,8 @@ ReactiveFormsModule
     EditAchievmentComponent,
     SingleDonationComponent,
     NewDonationComponent,
-    DocumentListComponent
+    DocumentListComponent,
+    PartnersListComponent
   ],
   providers: [
     {

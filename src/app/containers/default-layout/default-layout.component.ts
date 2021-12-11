@@ -9,6 +9,7 @@ import {ConfigService} from "../../config/config.service";
 export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems = navItems;
+  notifyCount=0
   constructor( private configService:ConfigService)
   {
 
@@ -20,4 +21,18 @@ export class DefaultLayoutComponent {
   logOut(){
     this.configService.logout()
   }
+  ngOnInit(): void {
+    this.getNotifications()
+  }
+  getNotifications(){
+    this.configService.getNotifications().subscribe(data=>{
+      this.notifyCount=(data.length);
+    })
+}
+readNotifications(){
+  
+  this.configService.getNotificationsRead().subscribe(data=>{
+    this.notifyCount=null;
+  })
+}
 }
