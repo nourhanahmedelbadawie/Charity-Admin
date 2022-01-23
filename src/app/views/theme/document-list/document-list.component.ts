@@ -1,4 +1,3 @@
-import { baseUrl } from "./../../../../../../Charity-User/src/environments/environment";
 import { Component, OnInit } from "@angular/core";
 import { ConfigService } from "../../../config/config.service";
 import Swal from "sweetalert2";
@@ -10,7 +9,7 @@ import { BehaviorSubject, Observable } from "rxjs";
   styleUrls: ["./document-list.component.scss"],
 })
 export class DocumentListComponent implements OnInit {
-  baseUrl;
+  baseUrl
   docs: Observable<any>;
   _docs = new BehaviorSubject<[]>([]);
 

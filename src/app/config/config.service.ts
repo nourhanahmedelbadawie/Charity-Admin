@@ -15,7 +15,7 @@ const httpOptions = {
   providedIn: "root",
 })
 export class ConfigService {
-  baseurl = "http://137.184.108.244:8081/";
+   baseurl = "http://137.184.108.244:8081/";
   configUrl = "http://137.184.108.244:8081/index.php/api/dashboard/";
   configViewUrl = "http://137.184.108.244:8081/index.php/api";
 
