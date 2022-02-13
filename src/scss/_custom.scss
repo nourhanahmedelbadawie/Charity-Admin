@@ -17,7 +17,7 @@ main > .container-fluid {
   padding-top: 85px !important;
   position: relative;
 }
-button:disabled{
+button:disabled {
   cursor: not-allowed;
 }
 // header
@@ -37,7 +37,8 @@ button:disabled{
   background: #ffffff;
   .nav-link {
     color: #28246b;
-    &:hover , &.active {
+    &:hover,
+    &.active {
       color: #7cc249;
       background: #f6f9fc;
     }
@@ -46,7 +47,22 @@ button:disabled{
 .d-lg-none.navbar-toggler {
   display: none;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 .navbar-nav {
   width: calc(100% - 200px);
   display: flex;
@@ -128,9 +144,6 @@ li.search-nav {
     fill: red;
   }
 
-  
-
-  
   .icon-pencil:before {
     background-image: url(../assets/img/images-admin/tabs_icon_dash/home_1.svg);
   }
@@ -159,9 +172,8 @@ li.search-nav {
   &:nth-of-type(8) .icon-star::before {
     background-image: url(../assets/img/images-admin/tabs_icon_dash/about.svg);
   }
-  &:hover  , &.active{
- 
-    
+  &:hover,
+  &.active {
     .icon-pencil:before {
       background-image: url(../assets/img/images-admin/tabs_icon_dash/home_2.svg);
     }
@@ -183,7 +195,7 @@ li.search-nav {
     .icon-calculator:before {
       background-image: url(../assets/img/images-admin/tabs_icon_dash/doner_2.svg);
     }
-  
+
     .icon-ban:before {
       background-image: url(../assets/img/images-admin/tabs_icon_dash/settings_2.svg);
     }
@@ -191,7 +203,6 @@ li.search-nav {
       background-image: url(../assets/img/images-admin/tabs_icon_dash/about_2.svg);
     }
   }
-
 }
 
 //comom class
@@ -248,7 +259,6 @@ h4 {
   width: 80%;
   margin: 0 auto;
 
-
   &::after {
     border: 2px solid #7cc249;
     content: "";
@@ -267,7 +277,7 @@ h4 {
     width: 730px;
     margin: 0 auto;
     position: relative;
- 
+
     z-index: 5;
   }
 }
@@ -294,8 +304,8 @@ form {
   }
 }
 .upload {
-  position:relative ;
-  ::-webkit-file-upload-button{
+  position: relative;
+  ::-webkit-file-upload-button {
     background-color: red !important;
     position: absolute;
     right: 1px;
@@ -498,18 +508,16 @@ table {
 }
 
 //Home
-.aboutFilename{
+.aboutFilename {
   max-width: 53%;
   max-height: 52px;
   display: flex;
   overflow: auto;
-  span{
+  span {
     font-size: 0.7rem;
   }
 }
 
-
-
-.no_border_after::after{
+.no_border_after::after {
   border: none !important;
 }
