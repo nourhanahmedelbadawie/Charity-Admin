@@ -52,10 +52,10 @@ export class TypographyComponent {
   // submotion form
   homeForm = this.fb.group({
     cover: [null],
-    title: ["", Validators.required],
-    subtitle: ["", Validators.required],
-    about_section_title: ["", Validators.required],
-    about_section_subtitle: ["", Validators.required],
+    title: [null],
+    subtitle: [null],
+    about_section_title: [null],
+    about_section_subtitle: [null],
     image: [null],
   });
   submit() {
@@ -63,12 +63,13 @@ export class TypographyComponent {
     let homeobj = {
       title: this.homeForm.value.title,
       subtitle: this.homeForm.value.subtitle,
-      cover: [...this.cover],
+      cover:this.cover ?  [...this.cover] : null,
 
       title2: this.homeForm.value.about_section_title,
       body: this.homeForm.value.about_section_subtitle,
-      image: [...this.images],
+      image:this.images? [...this.images] : null,
     };
+    console.log(homeobj)
     this.configService
       .sendHomeScreen(JSON.stringify(homeobj))
 

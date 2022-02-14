@@ -49,9 +49,9 @@ export class EditAchievmentComponent implements OnInit {
         this.singleAch = Object.assign({}, data);
         console.log(this.singleAch);
         this.achForm = this.fb.group({
-          title: [this.singleAch.title, Validators.required],
-          intro: [this.singleAch.intro, Validators.required],
-          body: [this.singleAch.body, Validators.required],
+          title: [this.singleAch.title],
+          intro: [this.singleAch.intro],
+          body: [this.singleAch.body],
         });
       });
   }

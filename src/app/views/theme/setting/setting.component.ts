@@ -15,9 +15,9 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
   }
   profiletForm=this.fb.group({
-    name:['',Validators.required] ,
-    email:['',Validators.required ,Validators.email] ,
-    password:['',Validators.required]
+    name:[''] ,
+    email:['',Validators.email] ,
+    password:['']
 
 
   })

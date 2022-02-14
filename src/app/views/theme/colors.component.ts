@@ -60,8 +60,8 @@ export class ColorsComponent implements OnInit {
   }
   // submotion form
   docForm = this.fb.group({
-    title: ["", Validators.required],
-    intro: ["", Validators.required],
+    title: [""],
+    intro: [""],
   });
   submit() {
     let doc = {
