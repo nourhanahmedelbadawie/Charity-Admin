@@ -72,9 +72,9 @@ ext
 
   // submotion form
   donationForm = this.fb.group({
-    title: ["", Validators.required],
-    description: ["", Validators.required],
-    goal:["", Validators.required],
+    title: [""],
+    description: [""],
+    goal:[""],
    
   });
   submit() {

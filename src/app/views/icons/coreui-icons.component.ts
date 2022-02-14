@@ -87,9 +87,9 @@ export class CoreUIIconsComponent implements OnInit {
   }
   // submotion form
   partForm = this.fb.group({
-    title: ["", Validators.required],
-    intro: ["", Validators.required],
-    our_partners: ["", Validators.required],
+    title: [""],
+    intro: [""],
+    our_partners: [""],
   });
   submit(e) {
     let doc = {

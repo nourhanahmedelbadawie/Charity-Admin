@@ -51,24 +51,25 @@ export class TypographyComponent {
 
   // submotion form
   homeForm = this.fb.group({
-    cover: [null],
-    title: ["", Validators.required],
-    subtitle: ["", Validators.required],
-    about_section_title: ["", Validators.required],
-    about_section_subtitle: ["", Validators.required],
-    image: [null],
+    cover: [],
+    title: [""],
+    subtitle: [""],
+    about_section_title: [""],
+    about_section_subtitle: [""],
+    image: [],
   });
   submit() {
     this.loadingSubmitBtn=true
     let homeobj = {
       title: this.homeForm.value.title,
       subtitle: this.homeForm.value.subtitle,
-      cover: [...this.cover],
+      cover:this.cover ?  [...this.cover] : [],
 
       title2: this.homeForm.value.about_section_title,
       body: this.homeForm.value.about_section_subtitle,
-      image: [...this.images],
+      image:this.images? [...this.images] : [],
     };
+    console.log(homeobj)
     this.configService
       .sendHomeScreen(JSON.stringify(homeobj))
 

@@ -54,9 +54,9 @@ export class SingleAchievmentComponent implements OnInit {
   }
   // submotion form
   achForm = this.fb.group({
-    title: ["", Validators.required],
-    intro: ["", Validators.required],
-    body: ["", Validators.required],
+    title: [""],
+    intro: [""],
+    body: [""],
   });
   submit(e) {
     let doc = { ...this.achForm.value , image:this.image , cover:this.cover ,ext:this.ext ,cov_ext:this.cov_ext};
