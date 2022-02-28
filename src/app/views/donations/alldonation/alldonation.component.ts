@@ -17,7 +17,7 @@ export class AlldonationComponent implements OnInit {
  
   _allCurrentDep = new BehaviorSubject<[]>([])
   _allUrgentDep = new BehaviorSubject<[]>([])
-
+   baseUrl='http://137.184.108.244:8081/'
   ngOnInit() {
     this.getNormalDepartment()
      this.getUrgentDepartment()
