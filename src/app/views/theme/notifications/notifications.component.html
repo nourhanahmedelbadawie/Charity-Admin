@@ -1,8 +1,42 @@
+<div *ngIf="notifications?.length > 0 ; else noNotifications" class="notification_body">
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of notifications ; let index=index">
-    <h3>{{item.data.name}}</h3>
-    <P>{{item.data.document}}</P>
-    <p>{{item.from}}</p>
-  </li>
+  <li
+    class="list-group-item mb-3"
+    *ngFor="let item of notifications; let index = index"
+    
+  >
+    <div *ngIf="item.type === 'DonationNotification'">
+      <span>{{ item.data.name }} </span> have make a donation of
+      <span>{{ item.data.amount }}</span> to
+      <span>
+        {{ item.data.department_title }}
+      </span>
+      <p>{{ item.data.from }}</p>
+      <mark>{{ item.from }} </mark>
+    </div>
 
+    <div *ngIf="item.type === 'DownloaderNotification'">
+      <span>{{ item.data.name }} </span> have downloaded the document "
+      <span>{{ item.data.document }}</span> "" 
+      <span>
+        {{ item.data.department_title }}
+      </span>
+      <p>{{ item.data.from }}</p>
+      <mark>{{ item.from }} </mark>
+    </div>
+
+    <div
+      *ngIf="
+        item.type != 'DonationNotification' &&
+        item.type != 'DownloaderNotification'
+      "
+    >
+      <span>{{ item.data.name }} </span>
+      <mark>{{ item.from }} </mark>
+    </div>
+  </li>
 </ul>
+</div>
+<ng-template #noNotifications>
+  No notifications yet
+</ng-template>

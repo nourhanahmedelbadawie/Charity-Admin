@@ -16,7 +16,6 @@ export class NotificationsComponent implements OnInit {
   getNotifications(){
     this.configService.getNotifications().subscribe(data=>{
       this.notifications=(data);
-      console.log( this.notifications)
     })
 }
 }

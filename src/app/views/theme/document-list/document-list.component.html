@@ -13,12 +13,17 @@
           <thead>
             <tr>
               <th>Name</th>
+              <th style="width: 30%">Number Of downloads</th>
+
               <th style="width: 10%">Action</th>
             </tr>
           </thead>
           <tbody style="width: 100%">
             <tr *ngFor="let item of docs | async">
               <td>{{ item.title }}</td>
+
+              <td>{{ item.downloaders_count }}</td>
+
               <td style="width: 20%">
                 <div class="d-flex jjustify-content-between align-items-center">
                   <a
@@ -28,7 +33,12 @@
                   >
                     open
                   </a>
-                  <button class="btn btn-danger" (click)="deleteDocument(item.id)">Delete</button>
+                  <button
+                    class="btn btn-danger"
+                    (click)="deleteDocument(item.id)"
+                  >
+                    Delete
+                  </button>
                 </div>
               </td>
             </tr>

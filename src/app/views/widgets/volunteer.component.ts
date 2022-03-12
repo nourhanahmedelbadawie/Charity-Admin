@@ -4,9 +4,9 @@ import { CustomTooltips } from "@coreui/coreui-plugin-chartjs-custom-tooltips";
 import { ConfigService } from "../../config/config.service";
 
 @Component({
-  templateUrl: "widgets.component.html",
+  templateUrl: "volunteer.component.html",
 })
-export class WidgetsComponent {
+export class VolunteerComponent {
 donors
   constructor(private configService: ConfigService) { 
     this.configService.getAllDonors().subscribe(data =>{

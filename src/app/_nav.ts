@@ -47,14 +47,20 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Doners',
-    url: '/widgets',
+    url: '/users/doners',
+    icon: 'icon-calculator',
+    
+  },
+  {
+    name: 'volunteer',
+    url: '/users/volunteers',
     icon: 'icon-calculator',
     
   },
   {
     name: 'About',
     url: '/admin/about',
-    icon: 'icon-calculator',
+    icon: 'icon-ban',
     
   }
   

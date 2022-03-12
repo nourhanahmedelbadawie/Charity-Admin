@@ -1,36 +1,32 @@
 // Angular
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-
-import { ColorsComponent } from './colors.component';
-import { TypographyComponent } from './typography.component';
-import { UserInterceptor } from '../../provider/user.interceptor';
-
-
+import { ColorsComponent } from "./colors.component";
+import { TypographyComponent } from "./typography.component";
+import { UserInterceptor } from "../../provider/user.interceptor";
+import { NotificationsComponent } from "./notifications/notifications.component";
 
 // Theme Routing
-import { ThemeRoutingModule } from './theme-routing.module';
-import { HttpClientModule ,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ThemeRoutingModule } from "./theme-routing.module";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 @NgModule({
   imports: [
     CommonModule,
-    ThemeRoutingModule ,
-    FormsModule, ReactiveFormsModule ,
-    HttpClientModule
+    ThemeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  declarations: [
-    ColorsComponent,
-    TypographyComponent 
-  ] ,
+  declarations: [ColorsComponent, TypographyComponent, NotificationsComponent],
   providers: [
     {
-      provide:HTTP_INTERCEPTORS,
-      useClass:UserInterceptor,
-      multi:true
-    }
-  ]
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserInterceptor,
+      multi: true,
+    },
+  ],
 })
-export class ThemeModule { }
+export class ThemeModule {}
