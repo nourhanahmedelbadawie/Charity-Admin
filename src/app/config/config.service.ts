@@ -15,9 +15,9 @@ const httpOptions = {
   providedIn: "root",
 })
 export class ConfigService {
-   baseurl = "http://137.184.108.244:8081/";
-  configUrl = "http://137.184.108.244:8081/index.php/api/dashboard/";
-  configViewUrl = "http://137.184.108.244:8081/index.php/api";
+  baseurl = "http://128.199.36.173:8080/";
+  configUrl = "http://128.199.36.173:8080/api/dashboard/";
+  configViewUrl = "http://128.199.36.173:8080/api";
 
   constructor(private http: HttpClient, private route: Router) {}
   login(user: any): Observable<any> {
@@ -120,14 +120,11 @@ export class ConfigService {
       .get(`${this.configViewUrl}/partners/get_all_partners/`)
       .pipe(catchError(this.handleError));
   }
-deletePartner(id){
-  return this.http
-  .delete<any>(
-    `${this.configUrl}partners/${id}`,
-    httpOptions
-  )
-  .pipe(catchError(this.handleError));
-}
+  deletePartner(id) {
+    return this.http
+      .delete<any>(`${this.configUrl}partners/${id}`, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
   // ============================================== Donor ==================================================
 
   getAllDonors(): Observable<any> {
